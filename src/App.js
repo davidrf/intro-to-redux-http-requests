@@ -1,21 +1,18 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
-    );
-  }
-}
+export const App = ({ groceries, onChangeValue, onSubmit, value }) => (
+  <div>
+    <form onSubmit={onSubmit}>
+      <label>Grocery Name</label>
+      <input onChange={onChangeValue} value={value} />
+      <button type="submit">Add Grocery</button>
+    </form>
+    <ul>
+      {groceries.map(({ id, name }) => (
+        <li key={id}>{name}</li>
+      ))}
+    </ul>
+  </div>
+);
 
 export default App;
