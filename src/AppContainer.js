@@ -14,6 +14,7 @@ class AppContainer extends Component {
 
     if (value) {
       this.props.createGrocery(value);
+      this.setState({ value: '' });
     }
   };
 
