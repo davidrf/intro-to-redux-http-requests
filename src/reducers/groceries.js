@@ -23,6 +23,24 @@ export const createGrocery = payload => ({
   payload,
 });
 
+export const fetchGroceries = () => (dispatch, getState) => {
+  dispatch(fetchGroceryRequest());
+
+  fetch('https://intro-to-redux-groceries-api.herokuapp.com/groceries')
+  .then(response => {
+    if (response.ok) {
+      return response.json();
+    }
+
+    throw new Error('request failed');
+  })
+  .then(
+    body => dispatch(fetchGroceryRequestSuccess(body)),
+    () => dispatch(fetchGroceryRequestFailure),
+  );
+}
+
+
 export const initialState = {
   all: [],
 };
