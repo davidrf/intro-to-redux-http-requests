@@ -1,18 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import App from './App';
-import { createGrocery } from './reducers/groceries';
 import {
   fetchGroceries,
+  createGrocery,
 } from './reducers/groceries';
 
-    // fetch('https://intro-to-redux-groceries-api.herokuapp.com/groceries', {
-      // method: 'POST',
-      // headers: {
-        // 'Content-Type': 'application/json',
-      // },
-      // body: JSON.stringify({ }),
-    // })
 
 class AppContainer extends Component {
   state = { value: '' }
